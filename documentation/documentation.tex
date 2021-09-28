@@ -1,4 +1,11 @@
 \documentclass[12pt, a4paper]{report}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Yanick Christen, Valentin Jauch}
+\rhead{\today}
+\cfoot{\thepage}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -21,5 +28,10 @@
 
     \input{title.tex}
     \input{table_of_contents.tex}
+    \input{goal.tex}
+    \input{business_process.tex}
+    \input{test_cases.tex}
+    \input{approach.tex}
+
 
 \end{document}
