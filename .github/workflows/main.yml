@@ -1,0 +1,42 @@
+name: Build Pipeline
+on: [ push, workflow_dispatch ]
+jobs:
+  Version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Make version directory
+        run: mkdir -p out
+      - name: Version Docker
+        run: echo -n "$(./scripts/version.sh docker)" > out/VERSION_DOCKER.txt
+      - name: Version Python
+        run: echo -n "$(./scripts/version.sh python)" > out/VERSION_PYTHON.txt
+      - name: Store versions
+        uses: actions/upload-artifact@v2
+        with:
+          name: version
+          path: out/**
+  Build-Documentation:
+    runs-on: ubuntu-latest
+    needs: Version
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Load version artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: version
+      - name: Set version
+        run: echo "version=$(cat VERSION_DOCKER.txt)" >> $GITHUB_ENV
+      - name: Install dependencies
+        run: ./scripts/install-latex-dependencies.sh documentation/dependencies.list
+      - name: Build documentation
+        run: ./documentation/build.sh ${{ env.version }}
+      - name: Store product documentation
+        uses: actions/upload-artifact@v2
+        with:
+          name: coffee-simulator-documentation-${{ env.version }}
+          path: documentation/out/**
