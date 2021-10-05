@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="Definitions_0s3iezl" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.9.0">
+  <decision id="Decision_0fn2pm9" name="Zutaten">
+    <decisionTable id="DecisionTable_11j7ba1">
+      <input id="Input_1" label="Kaffee Sorte">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Zutaten" typeRef="string" />
+      <output id="OutputClause_01cpqup" label="Grösse" typeRef="string" />
+      <rule id="DecisionRule_1sw65vu">
+        <inputEntry id="UnaryTests_0y0n73h">
+          <text>black</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sn51i2">
+          <text>coffee</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1b74ocy">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0luszrw">
+        <inputEntry id="UnaryTests_0cdbw6e">
+          <text>espresso</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ax3yhe">
+          <text>coffee</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0hth87y">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ke4ysl">
+        <inputEntry id="UnaryTests_14qasnr">
+          <text>mokka</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qmftkx">
+          <text>coffee, zucker</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1lqxbqs">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wfbxz4">
+        <inputEntry id="UnaryTests_10fzc6q">
+          <text>cappuccino</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f19wa7">
+          <text>coffee, milk, froth</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0stp6g7">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lm1fl1">
+        <inputEntry id="UnaryTests_0zvmllh">
+          <text>latte_macciato</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ldwwb3">
+          <text>coffee, milk, froth</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1blp2a9">
+          <text>8</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02uvobp">
+        <inputEntry id="UnaryTests_19185b3">
+          <text>milk</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0namier">
+          <text>milk</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_06rw2kj">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0fn2pm9">
+        <dc:Bounds height="80" width="180" x="330" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
