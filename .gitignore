@@ -4,3 +4,6 @@ documentation/out
 # IDE
 .idea
 out
+
+# Frontend
+node_modules
