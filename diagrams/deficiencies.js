@@ -37,7 +37,7 @@ if (index > -1) {
   deficienies.splice(index, 1);
 }
 
-${deficienies.length > 0}
+{deficienies.size() > 0}
 
 
 

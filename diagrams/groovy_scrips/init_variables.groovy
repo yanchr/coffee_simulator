@@ -9,3 +9,12 @@ execution.setVariable("deficiencies", []);
 
 // display
 execution.setVariable("display", "initialisieren...");
+
+
+// Kaffee herauslassen
+execution.setVariable("levels", [
+    "milk": , execution.getVariable("levels")["milk"] - 10,
+    "water": execution.getVariable("levels")["water"] - 20,
+    "beans": execution.getVariable("levels")["beans"] - 10, 
+    "sugar": execution.getVariable("levels")["sugar"]]) - 10;
+
