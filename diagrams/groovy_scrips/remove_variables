@@ -1,0 +1,13 @@
+execution.getVariable("deficienies")
+execution.getVariable("display")
+
+execution.setVariable("display", 
+);
+
+execution.getVariable("levels")["water"] 
+
+deficiencies = execution.getVariable("deficiencies");
+deficiencies -= "Wasser";
+execution.setVariable("deficiencies", deficiencies);
+
+

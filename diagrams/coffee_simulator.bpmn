@@ -1,109 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0c8gxdk" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.9.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0c8gxdk" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.9.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
   <bpmn:collaboration id="Collaboration_0fquphk">
-    <bpmn:participant id="Participant_0f9uzqz" name="Kaffemaschiene" processRef="Process_0g9euat" />
+    <bpmn:participant id="Participant_0f9uzqz" name="Kaffemaschine" processRef="Coffee_Process" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_0g9euat" isExecutable="false">
+  <bpmn:process id="Coffee_Process" isExecutable="true">
     <bpmn:laneSet id="LaneSet_0gv0enp">
       <bpmn:lane id="Lane_11076ua">
-        <bpmn:flowNodeRef>Event_09obgq7</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_119rgxg</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0hwsoew</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_15eyizn</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1ftxx8q</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1ie2buv</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1vg4vug</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0iv8k3f</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_08l5cxg</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_19benk4</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_0qx8qi9</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0no19t9</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1x1sgf6</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_15eyizn</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0hwsoew</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_119rgxg</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_0c150x0</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0bemtpd</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_09obgq7</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_0jx3d3v</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
-    <bpmn:startEvent id="Event_09obgq7" name="Kaffemaschiene ein">
-      <bpmn:outgoing>Flow_1tljnq3</bpmn:outgoing>
-    </bpmn:startEvent>
-    <bpmn:subProcess id="Activity_0hwsoew" name="Kaffee herstellen">
-      <bpmn:incoming>Flow_1xkedlt</bpmn:incoming>
-      <bpmn:outgoing>Flow_1deutfc</bpmn:outgoing>
-      <bpmn:startEvent id="Event_0tjvc7v">
-        <bpmn:outgoing>Flow_111bibe</bpmn:outgoing>
-      </bpmn:startEvent>
-      <bpmn:task id="Activity_070469o" name="Mängel überprüfen">
-        <bpmn:incoming>Flow_111bibe</bpmn:incoming>
-        <bpmn:outgoing>Flow_0ewkmbd</bpmn:outgoing>
-      </bpmn:task>
-      <bpmn:sequenceFlow id="Flow_111bibe" sourceRef="Event_0tjvc7v" targetRef="Activity_070469o" />
-      <bpmn:exclusiveGateway id="Gateway_10uyimu" name="Mängel vorhanden?">
-        <bpmn:incoming>Flow_0ewkmbd</bpmn:incoming>
-        <bpmn:outgoing>Flow_0rhzflp</bpmn:outgoing>
-        <bpmn:outgoing>Flow_0m9tedn</bpmn:outgoing>
-      </bpmn:exclusiveGateway>
-      <bpmn:sequenceFlow id="Flow_0ewkmbd" sourceRef="Activity_070469o" targetRef="Gateway_10uyimu" />
-      <bpmn:task id="Activity_0yt7dar" name="Display Fehler anzeigen">
-        <bpmn:incoming>Flow_0rhzflp</bpmn:incoming>
-        <bpmn:outgoing>Flow_04px6l3</bpmn:outgoing>
-      </bpmn:task>
-      <bpmn:sequenceFlow id="Flow_0rhzflp" name="Ja" sourceRef="Gateway_10uyimu" targetRef="Activity_0yt7dar" />
-      <bpmn:endEvent id="Event_0e4epa9">
-        <bpmn:incoming>Flow_04px6l3</bpmn:incoming>
-      </bpmn:endEvent>
-      <bpmn:sequenceFlow id="Flow_04px6l3" sourceRef="Activity_0yt7dar" targetRef="Event_0e4epa9" />
-      <bpmn:endEvent id="Event_193frji">
-        <bpmn:incoming>Flow_0x5swtq</bpmn:incoming>
-      </bpmn:endEvent>
-      <bpmn:sequenceFlow id="Flow_0m9tedn" name="Nein" sourceRef="Gateway_10uyimu" targetRef="Activity_164odgu" />
-      <bpmn:businessRuleTask id="Activity_164odgu" name="Zutaten zusammenstellen">
-        <bpmn:incoming>Flow_0m9tedn</bpmn:incoming>
-        <bpmn:outgoing>Flow_0sqiar2</bpmn:outgoing>
-      </bpmn:businessRuleTask>
-      <bpmn:sequenceFlow id="Flow_0x5swtq" sourceRef="Activity_1a5o9d9" targetRef="Event_193frji" />
-      <bpmn:sequenceFlow id="Flow_0sqiar2" sourceRef="Activity_164odgu" targetRef="Activity_1a5o9d9" />
-      <bpmn:task id="Activity_1a5o9d9" name="Kaffe herauslassen">
-        <bpmn:incoming>Flow_0sqiar2</bpmn:incoming>
-        <bpmn:outgoing>Flow_0x5swtq</bpmn:outgoing>
-      </bpmn:task>
-    </bpmn:subProcess>
     <bpmn:subProcess id="Activity_15eyizn" name="Bohnen mahlen">
       <bpmn:incoming>Flow_0vkxvzx</bpmn:incoming>
       <bpmn:outgoing>Flow_0pfg7n6</bpmn:outgoing>
       <bpmn:startEvent id="Event_1ksrpvx">
         <bpmn:outgoing>Flow_0xij8ve</bpmn:outgoing>
       </bpmn:startEvent>
-      <bpmn:task id="Activity_0wwxeii" name="Bohnen mahlen">
-        <bpmn:incoming>Flow_08v2dcy</bpmn:incoming>
-        <bpmn:outgoing>Flow_1i8owk5</bpmn:outgoing>
-      </bpmn:task>
-      <bpmn:task id="Activity_04lrzqe" name="Dispaly: mahlen">
-        <bpmn:incoming>Flow_1ox1z5j</bpmn:incoming>
-        <bpmn:outgoing>Flow_08v2dcy</bpmn:outgoing>
-      </bpmn:task>
       <bpmn:sequenceFlow id="Flow_08v2dcy" sourceRef="Activity_04lrzqe" targetRef="Activity_0wwxeii" />
       <bpmn:endEvent id="Event_0mo8piz">
         <bpmn:incoming>Flow_1i8owk5</bpmn:incoming>
       </bpmn:endEvent>
       <bpmn:sequenceFlow id="Flow_1i8owk5" sourceRef="Activity_0wwxeii" targetRef="Event_0mo8piz" />
       <bpmn:sequenceFlow id="Flow_0xij8ve" sourceRef="Event_1ksrpvx" targetRef="Activity_13w2w38" />
-      <bpmn:task id="Activity_13w2w38" name="Bohnen füllen">
+      <bpmn:sequenceFlow id="Flow_1ox1z5j" sourceRef="Activity_13w2w38" targetRef="Activity_04lrzqe" />
+      <bpmn:scriptTask id="Activity_13w2w38" name="Bohnen füllen" scriptFormat="groovy">
         <bpmn:incoming>Flow_0xij8ve</bpmn:incoming>
         <bpmn:outgoing>Flow_1ox1z5j</bpmn:outgoing>
-      </bpmn:task>
-      <bpmn:sequenceFlow id="Flow_1ox1z5j" sourceRef="Activity_13w2w38" targetRef="Activity_04lrzqe" />
+        <bpmn:script>execution.getVariable("levels")["beans"] = 100;</bpmn:script>
+      </bpmn:scriptTask>
+      <bpmn:scriptTask id="Activity_04lrzqe" name="Dispaly: mahlen" scriptFormat="groovy">
+        <bpmn:incoming>Flow_1ox1z5j</bpmn:incoming>
+        <bpmn:outgoing>Flow_08v2dcy</bpmn:outgoing>
+        <bpmn:script>execution.setVariable("display", "Mahlen");</bpmn:script>
+      </bpmn:scriptTask>
+      <bpmn:scriptTask id="Activity_0wwxeii" name="Bohnen mahlen" scriptFormat="groovy">
+        <bpmn:incoming>Flow_08v2dcy</bpmn:incoming>
+        <bpmn:outgoing>Flow_1i8owk5</bpmn:outgoing>
+        <bpmn:script>sleep(5000);</bpmn:script>
+      </bpmn:scriptTask>
     </bpmn:subProcess>
     <bpmn:subProcess id="Activity_1ftxx8q" name="Standby">
-      <bpmn:incoming>Flow_1deutfc</bpmn:incoming>
-      <bpmn:incoming>Flow_1tljnq3</bpmn:incoming>
       <bpmn:incoming>Flow_0pfg7n6</bpmn:incoming>
       <bpmn:incoming>Flow_159t17m</bpmn:incoming>
       <bpmn:incoming>Flow_0d6xopu</bpmn:incoming>
       <bpmn:incoming>Flow_1pfsf7m</bpmn:incoming>
+      <bpmn:incoming>Flow_1deutfc</bpmn:incoming>
+      <bpmn:incoming>Flow_1qpv5fa</bpmn:incoming>
       <bpmn:standardLoopCharacteristics />
       <bpmn:startEvent id="Event_1dfnsu6">
-        <bpmn:outgoing>Flow_0zqrsgo</bpmn:outgoing>
+        <bpmn:outgoing>Flow_0ijv0tm</bpmn:outgoing>
       </bpmn:startEvent>
-      <bpmn:sequenceFlow id="Flow_0zqrsgo" sourceRef="Event_1dfnsu6" targetRef="Activity_0bemtpd" />
       <bpmn:parallelGateway id="Gateway_03vv3m4">
-        <bpmn:incoming>Flow_05hol9w</bpmn:incoming>
+        <bpmn:incoming>Flow_0ijv0tm</bpmn:incoming>
         <bpmn:outgoing>Flow_1go02or</bpmn:outgoing>
         <bpmn:outgoing>Flow_0gx1amt</bpmn:outgoing>
         <bpmn:outgoing>Flow_0259gf1</bpmn:outgoing>
@@ -139,14 +101,18 @@
           <bpmn:incoming>Flow_1ns7n8o</bpmn:incoming>
         </bpmn:endEvent>
         <bpmn:sequenceFlow id="Flow_1ns7n8o" sourceRef="Activity_1bunime" targetRef="Event_17yegu4" />
-        <bpmn:task id="Activity_1qgd06v" name="Mängel löschen">
-          <bpmn:incoming>Flow_12lcgey</bpmn:incoming>
-          <bpmn:outgoing>Flow_0a0mk72</bpmn:outgoing>
-        </bpmn:task>
         <bpmn:sequenceFlow id="Flow_0a0mk72" sourceRef="Activity_1qgd06v" targetRef="Event_1qtkg2x" />
-        <bpmn:scriptTask id="Activity_1bunime" name="Mangel melden">
+        <bpmn:scriptTask id="Activity_1bunime" name="Mangel melden" scriptFormat="groovy">
           <bpmn:incoming>Flow_0xrifzs</bpmn:incoming>
           <bpmn:outgoing>Flow_1ns7n8o</bpmn:outgoing>
+          <bpmn:script>execution.getVariable("deficienies").add("Wasser");</bpmn:script>
+        </bpmn:scriptTask>
+        <bpmn:scriptTask id="Activity_1qgd06v" name="Mängel löschen" scriptFormat="groovy">
+          <bpmn:incoming>Flow_12lcgey</bpmn:incoming>
+          <bpmn:outgoing>Flow_0a0mk72</bpmn:outgoing>
+          <bpmn:script>deficiencies = execution.getVariable("deficiencies");
+deficiencies -= "Wasser";
+execution.setVariable("deficiencies", deficiencies);</bpmn:script>
         </bpmn:scriptTask>
       </bpmn:subProcess>
       <bpmn:subProcess id="Activity_18ilkx8" name="Milch prüfen">
@@ -167,10 +133,6 @@
         <bpmn:endEvent id="Event_1h80km7">
           <bpmn:incoming>Flow_1bx91lw</bpmn:incoming>
         </bpmn:endEvent>
-        <bpmn:task id="Activity_1abwa82" name="Mangel melden">
-          <bpmn:incoming>Flow_1tcrgeq</bpmn:incoming>
-          <bpmn:outgoing>Flow_1bx91lw</bpmn:outgoing>
-        </bpmn:task>
         <bpmn:endEvent id="Event_1th12m0">
           <bpmn:incoming>Flow_104e3jm</bpmn:incoming>
         </bpmn:endEvent>
@@ -183,11 +145,19 @@
           <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${levels["milk"] &gt; 10}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
         <bpmn:sequenceFlow id="Flow_1bx91lw" sourceRef="Activity_1abwa82" targetRef="Event_1h80km7" />
-        <bpmn:task id="Activity_1famc96" name="Mängel löschen">
+        <bpmn:sequenceFlow id="Flow_104e3jm" sourceRef="Activity_1famc96" targetRef="Event_1th12m0" />
+        <bpmn:scriptTask id="Activity_1abwa82" name="Mangel melden" scriptFormat="groovy">
+          <bpmn:incoming>Flow_1tcrgeq</bpmn:incoming>
+          <bpmn:outgoing>Flow_1bx91lw</bpmn:outgoing>
+          <bpmn:script>execution.getVariable("deficienies").add("Milch");</bpmn:script>
+        </bpmn:scriptTask>
+        <bpmn:scriptTask id="Activity_1famc96" name="Mängel löschen" scriptFormat="groovy">
           <bpmn:incoming>Flow_00u9vk1</bpmn:incoming>
           <bpmn:outgoing>Flow_104e3jm</bpmn:outgoing>
-        </bpmn:task>
-        <bpmn:sequenceFlow id="Flow_104e3jm" sourceRef="Activity_1famc96" targetRef="Event_1th12m0" />
+          <bpmn:script>deficiencies = execution.getVariable("deficiencies");
+deficiencies -= "Milch";
+execution.setVariable("deficiencies", deficiencies);</bpmn:script>
+        </bpmn:scriptTask>
       </bpmn:subProcess>
       <bpmn:subProcess id="Activity_14cf0tp" name="Bohnen prüfen">
         <bpmn:incoming>Flow_0259gf1</bpmn:incoming>
@@ -207,10 +177,6 @@
         <bpmn:endEvent id="Event_0yuddxn">
           <bpmn:incoming>Flow_0zr64io</bpmn:incoming>
         </bpmn:endEvent>
-        <bpmn:task id="Activity_1jdrpp2" name="Mangel melden">
-          <bpmn:incoming>Flow_0doph12</bpmn:incoming>
-          <bpmn:outgoing>Flow_0zr64io</bpmn:outgoing>
-        </bpmn:task>
         <bpmn:endEvent id="Event_05pzaos">
           <bpmn:incoming>Flow_1otnwia</bpmn:incoming>
         </bpmn:endEvent>
@@ -223,11 +189,19 @@
           <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${levels["beans"] &gt; 10}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
         <bpmn:sequenceFlow id="Flow_0zr64io" sourceRef="Activity_1jdrpp2" targetRef="Event_0yuddxn" />
-        <bpmn:task id="Activity_1rkg6qw" name="Mängel löschen">
+        <bpmn:sequenceFlow id="Flow_1otnwia" sourceRef="Activity_1rkg6qw" targetRef="Event_05pzaos" />
+        <bpmn:scriptTask id="Activity_1jdrpp2" name="Mangel melden" scriptFormat="groovy">
+          <bpmn:incoming>Flow_0doph12</bpmn:incoming>
+          <bpmn:outgoing>Flow_0zr64io</bpmn:outgoing>
+          <bpmn:script>execution.getVariable("deficienies").add("Bohnen");</bpmn:script>
+        </bpmn:scriptTask>
+        <bpmn:scriptTask id="Activity_1rkg6qw" name="Mängel löschen" scriptFormat="groovy">
           <bpmn:incoming>Flow_1jsg1yb</bpmn:incoming>
           <bpmn:outgoing>Flow_1otnwia</bpmn:outgoing>
-        </bpmn:task>
-        <bpmn:sequenceFlow id="Flow_1otnwia" sourceRef="Activity_1rkg6qw" targetRef="Event_05pzaos" />
+          <bpmn:script>deficiencies = execution.getVariable("deficiencies");
+deficiencies -= "Bohnen";
+execution.setVariable("deficiencies", deficiencies);</bpmn:script>
+        </bpmn:scriptTask>
       </bpmn:subProcess>
       <bpmn:subProcess id="Activity_1wh3wcl" name="Zucker prüfen">
         <bpmn:incoming>Flow_0wvo4xk</bpmn:incoming>
@@ -247,10 +221,6 @@
         <bpmn:endEvent id="Event_0kdqcra">
           <bpmn:incoming>Flow_0p87nnw</bpmn:incoming>
         </bpmn:endEvent>
-        <bpmn:task id="Activity_1l3nb2r" name="Mangel melden">
-          <bpmn:incoming>Flow_0ejdqld</bpmn:incoming>
-          <bpmn:outgoing>Flow_0p87nnw</bpmn:outgoing>
-        </bpmn:task>
         <bpmn:endEvent id="Event_09y81p9">
           <bpmn:incoming>Flow_0m2vkrt</bpmn:incoming>
         </bpmn:endEvent>
@@ -263,11 +233,19 @@
           <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${levels["sugar"] &gt; 10}</bpmn:conditionExpression>
         </bpmn:sequenceFlow>
         <bpmn:sequenceFlow id="Flow_0p87nnw" sourceRef="Activity_1l3nb2r" targetRef="Event_0kdqcra" />
-        <bpmn:task id="Activity_0x47wn6" name="Mängel löschen">
+        <bpmn:sequenceFlow id="Flow_0m2vkrt" sourceRef="Activity_0x47wn6" targetRef="Event_09y81p9" />
+        <bpmn:scriptTask id="Activity_1l3nb2r" name="Mangel melden" scriptFormat="groovy">
+          <bpmn:incoming>Flow_0ejdqld</bpmn:incoming>
+          <bpmn:outgoing>Flow_0p87nnw</bpmn:outgoing>
+          <bpmn:script>execution.getVariable("deficienies").add("Zucker");</bpmn:script>
+        </bpmn:scriptTask>
+        <bpmn:scriptTask id="Activity_0x47wn6" name="Mängel löschen" scriptFormat="groovy">
           <bpmn:incoming>Flow_0desiui</bpmn:incoming>
           <bpmn:outgoing>Flow_0m2vkrt</bpmn:outgoing>
-        </bpmn:task>
-        <bpmn:sequenceFlow id="Flow_0m2vkrt" sourceRef="Activity_0x47wn6" targetRef="Event_09y81p9" />
+          <bpmn:script>deficiencies = execution.getVariable("deficiencies");
+deficiencies -= "Zucker";
+execution.setVariable("deficiencies", deficiencies);</bpmn:script>
+        </bpmn:scriptTask>
       </bpmn:subProcess>
       <bpmn:sequenceFlow id="Flow_0hgz5up" sourceRef="Activity_03apqm2" targetRef="Gateway_07e16dw" />
       <bpmn:sequenceFlow id="Flow_1ubnvgc" sourceRef="Activity_18ilkx8" targetRef="Gateway_07e16dw" />
@@ -276,10 +254,6 @@
       <bpmn:endEvent id="Event_0czqfnq">
         <bpmn:incoming>Flow_1eaqivf</bpmn:incoming>
       </bpmn:endEvent>
-      <bpmn:task id="Activity_13vhxoj" name="Display: {Mägel}">
-        <bpmn:incoming>Flow_1g7k6q4</bpmn:incoming>
-        <bpmn:outgoing>Flow_1eaqivf</bpmn:outgoing>
-      </bpmn:task>
       <bpmn:sequenceFlow id="Flow_1eaqivf" sourceRef="Activity_13vhxoj" targetRef="Event_0czqfnq" />
       <bpmn:exclusiveGateway id="Gateway_0p74eku" name="Mängel vorhanden?">
         <bpmn:incoming>Flow_0x48gpt</bpmn:incoming>
@@ -294,12 +268,12 @@
         <bpmn:outgoing>Flow_0x48gpt</bpmn:outgoing>
       </bpmn:parallelGateway>
       <bpmn:sequenceFlow id="Flow_0x48gpt" sourceRef="Gateway_07e16dw" targetRef="Gateway_0p74eku" />
-      <bpmn:sequenceFlow id="Flow_1g7k6q4" name="ja" sourceRef="Gateway_0p74eku" targetRef="Activity_13vhxoj" />
-      <bpmn:task id="Activity_1cqkmxg" name="Display: bereit">
-        <bpmn:incoming>Flow_11uuhcs</bpmn:incoming>
-        <bpmn:outgoing>Flow_1r8kbo6</bpmn:outgoing>
-      </bpmn:task>
-      <bpmn:sequenceFlow id="Flow_11uuhcs" name="nein" sourceRef="Gateway_0p74eku" targetRef="Activity_1cqkmxg" />
+      <bpmn:sequenceFlow id="Flow_1g7k6q4" name="ja" sourceRef="Gateway_0p74eku" targetRef="Activity_13vhxoj">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${deficiencies.size &gt; 0}</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:sequenceFlow id="Flow_11uuhcs" name="nein" sourceRef="Gateway_0p74eku" targetRef="Activity_1cqkmxg">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${deficiencies.size &lt;= 0}</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
       <bpmn:endEvent id="Event_0mzx1fx">
         <bpmn:incoming>Flow_1r8kbo6</bpmn:incoming>
       </bpmn:endEvent>
@@ -308,64 +282,147 @@
       <bpmn:sequenceFlow id="Flow_0gx1amt" sourceRef="Gateway_03vv3m4" targetRef="Activity_18ilkx8" />
       <bpmn:sequenceFlow id="Flow_0259gf1" sourceRef="Gateway_03vv3m4" targetRef="Activity_14cf0tp" />
       <bpmn:sequenceFlow id="Flow_0wvo4xk" sourceRef="Gateway_03vv3m4" targetRef="Activity_1wh3wcl" />
-      <bpmn:sequenceFlow id="Flow_05hol9w" sourceRef="Activity_0bemtpd" targetRef="Gateway_03vv3m4" />
-      <bpmn:scriptTask id="Activity_0bemtpd" name="Initialisieren">
-        <bpmn:incoming>Flow_0zqrsgo</bpmn:incoming>
-        <bpmn:outgoing>Flow_05hol9w</bpmn:outgoing>
-        <bpmn:script> // types
- execution.setVariable("types", ["black", "espresso", "mokka", "cappuccino", "latte_macciato", "milk"]);
- 
-// levels
-execution.setVariable("levels", {"milk": 100, "water": 100, "beans": 100, "sugar": 100});
-
-// deficiencies
-execution.setVariable("deficiencies", []);</bpmn:script>
+      <bpmn:scriptTask id="Activity_13vhxoj" name="Display: {Mägel}" scriptFormat="groovy">
+        <bpmn:incoming>Flow_1g7k6q4</bpmn:incoming>
+        <bpmn:outgoing>Flow_1eaqivf</bpmn:outgoing>
+        <bpmn:script>execution.setVariable("display", "Die folgenden Füllstände sind niedrig: " + deficienies.join(", "));</bpmn:script>
       </bpmn:scriptTask>
+      <bpmn:scriptTask id="Activity_1cqkmxg" name="Display: bereit" scriptFormat="groovy">
+        <bpmn:incoming>Flow_11uuhcs</bpmn:incoming>
+        <bpmn:outgoing>Flow_1r8kbo6</bpmn:outgoing>
+        <bpmn:script>execution.setVariable("display", "Bereit");</bpmn:script>
+      </bpmn:scriptTask>
+      <bpmn:sequenceFlow id="Flow_0ijv0tm" sourceRef="Event_1dfnsu6" targetRef="Gateway_03vv3m4" />
     </bpmn:subProcess>
     <bpmn:boundaryEvent id="Event_1ie2buv" name="Bohnen füllen" attachedToRef="Activity_1ftxx8q">
       <bpmn:outgoing>Flow_0vkxvzx</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_1jgcah9" />
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1jgcah9" messageRef="Message_10p0pex" />
     </bpmn:boundaryEvent>
     <bpmn:boundaryEvent id="Event_1vg4vug" name="Auswahl bekommen" attachedToRef="Activity_1ftxx8q">
       <bpmn:outgoing>Flow_1xkedlt</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_01qu572" />
+      <bpmn:messageEventDefinition id="MessageEventDefinition_01qu572" messageRef="Message_0vy8o4t" />
     </bpmn:boundaryEvent>
-    <bpmn:sequenceFlow id="Flow_1deutfc" sourceRef="Activity_0hwsoew" targetRef="Activity_1ftxx8q" />
-    <bpmn:sequenceFlow id="Flow_1tljnq3" sourceRef="Event_09obgq7" targetRef="Activity_1ftxx8q" />
     <bpmn:sequenceFlow id="Flow_1xkedlt" sourceRef="Event_1vg4vug" targetRef="Activity_0hwsoew" />
     <bpmn:sequenceFlow id="Flow_0vkxvzx" sourceRef="Event_1ie2buv" targetRef="Activity_15eyizn" />
     <bpmn:sequenceFlow id="Flow_0pfg7n6" sourceRef="Activity_15eyizn" targetRef="Activity_1ftxx8q" />
     <bpmn:boundaryEvent id="Event_0iv8k3f" name="Wasser  füllen" attachedToRef="Activity_1ftxx8q">
       <bpmn:outgoing>Flow_1udaz5a</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_0kxh6u5" />
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0kxh6u5" messageRef="Message_052s2cq" />
     </bpmn:boundaryEvent>
-    <bpmn:task id="Activity_119rgxg" name="Wassertank füllen">
-      <bpmn:incoming>Flow_1udaz5a</bpmn:incoming>
-      <bpmn:outgoing>Flow_159t17m</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_1udaz5a" sourceRef="Event_0iv8k3f" targetRef="Activity_119rgxg" />
     <bpmn:sequenceFlow id="Flow_159t17m" sourceRef="Activity_119rgxg" targetRef="Activity_1ftxx8q" />
     <bpmn:boundaryEvent id="Event_08l5cxg" name="Milch füllen" attachedToRef="Activity_1ftxx8q">
       <bpmn:outgoing>Flow_1rdw07d</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_07wx3wb" />
+      <bpmn:messageEventDefinition id="MessageEventDefinition_07wx3wb" messageRef="Message_17hjbln" />
     </bpmn:boundaryEvent>
     <bpmn:boundaryEvent id="Event_19benk4" name="Zucker füllen" attachedToRef="Activity_1ftxx8q">
       <bpmn:outgoing>Flow_1jrbbzb</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_1hqlfbg" />
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1hqlfbg" messageRef="Message_0vruq16" />
     </bpmn:boundaryEvent>
     <bpmn:sequenceFlow id="Flow_1jrbbzb" sourceRef="Event_19benk4" targetRef="Activity_1x1sgf6" />
-    <bpmn:task id="Activity_0no19t9" name="Milch füllen">
-      <bpmn:incoming>Flow_1rdw07d</bpmn:incoming>
-      <bpmn:outgoing>Flow_0d6xopu</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_1rdw07d" sourceRef="Event_08l5cxg" targetRef="Activity_0no19t9" />
-    <bpmn:task id="Activity_1x1sgf6" name="Zucker füllen">
-      <bpmn:incoming>Flow_1jrbbzb</bpmn:incoming>
-      <bpmn:outgoing>Flow_1pfsf7m</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0d6xopu" sourceRef="Activity_0no19t9" targetRef="Activity_1ftxx8q" />
     <bpmn:sequenceFlow id="Flow_1pfsf7m" sourceRef="Activity_1x1sgf6" targetRef="Activity_1ftxx8q" />
+    <bpmn:endEvent id="Event_0qx8qi9">
+      <bpmn:incoming>Flow_1kxbe7k</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1kxbe7k" sourceRef="Event_0c150x0" targetRef="Event_0qx8qi9" />
+    <bpmn:scriptTask id="Activity_0no19t9" name="Milch füllen" scriptFormat="groovy">
+      <bpmn:incoming>Flow_1rdw07d</bpmn:incoming>
+      <bpmn:outgoing>Flow_0d6xopu</bpmn:outgoing>
+      <bpmn:script>execution.getVariable("levels")["milk"] = 100;</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:scriptTask id="Activity_1x1sgf6" name="Zucker füllen" scriptFormat="groovy">
+      <bpmn:incoming>Flow_1jrbbzb</bpmn:incoming>
+      <bpmn:outgoing>Flow_1pfsf7m</bpmn:outgoing>
+      <bpmn:script>execution.getVariable("levels")["sugar"] = 100;</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:subProcess id="Activity_0hwsoew" name="Kaffee herstellen">
+      <bpmn:incoming>Flow_1xkedlt</bpmn:incoming>
+      <bpmn:outgoing>Flow_1deutfc</bpmn:outgoing>
+      <bpmn:businessRuleTask id="Activity_164odgu" name="Zutaten zusammenstellen" camunda:decisionRef="ingredients_dmn">
+        <bpmn:incoming>Flow_0m9tedn</bpmn:incoming>
+        <bpmn:outgoing>Flow_0sqiar2</bpmn:outgoing>
+      </bpmn:businessRuleTask>
+      <bpmn:endEvent id="Event_193frji">
+        <bpmn:incoming>Flow_0x5swtq</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:endEvent id="Event_0e4epa9">
+        <bpmn:incoming>Flow_0rhzflp</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:exclusiveGateway id="Gateway_10uyimu" name="Mängel vorhanden?">
+        <bpmn:incoming>Flow_0ewkmbd</bpmn:incoming>
+        <bpmn:outgoing>Flow_0rhzflp</bpmn:outgoing>
+        <bpmn:outgoing>Flow_0m9tedn</bpmn:outgoing>
+      </bpmn:exclusiveGateway>
+      <bpmn:task id="Activity_070469o" name="Mängel überprüfen">
+        <bpmn:incoming>Flow_111bibe</bpmn:incoming>
+        <bpmn:outgoing>Flow_0ewkmbd</bpmn:outgoing>
+      </bpmn:task>
+      <bpmn:startEvent id="Event_0tjvc7v">
+        <bpmn:outgoing>Flow_111bibe</bpmn:outgoing>
+      </bpmn:startEvent>
+      <bpmn:sequenceFlow id="Flow_111bibe" sourceRef="Event_0tjvc7v" targetRef="Activity_070469o" />
+      <bpmn:sequenceFlow id="Flow_0ewkmbd" sourceRef="Activity_070469o" targetRef="Gateway_10uyimu" />
+      <bpmn:sequenceFlow id="Flow_0rhzflp" name="Ja" sourceRef="Gateway_10uyimu" targetRef="Event_0e4epa9">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${deficiencies.size &gt; 0}</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:sequenceFlow id="Flow_0m9tedn" name="Nein" sourceRef="Gateway_10uyimu" targetRef="Activity_164odgu">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${deficiencies.size &lt;= 0}</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:sequenceFlow id="Flow_0x5swtq" sourceRef="Activity_1a5o9d9" targetRef="Event_193frji" />
+      <bpmn:sequenceFlow id="Flow_0sqiar2" sourceRef="Activity_164odgu" targetRef="Activity_1a5o9d9" />
+      <bpmn:scriptTask id="Activity_1a5o9d9" name="Kaffe herauslassen" scriptFormat="groovy">
+        <bpmn:incoming>Flow_0sqiar2</bpmn:incoming>
+        <bpmn:outgoing>Flow_0x5swtq</bpmn:outgoing>
+        <bpmn:script>sleep(5000);</bpmn:script>
+      </bpmn:scriptTask>
+    </bpmn:subProcess>
+    <bpmn:sequenceFlow id="Flow_1deutfc" sourceRef="Activity_0hwsoew" targetRef="Activity_1ftxx8q" />
+    <bpmn:scriptTask id="Activity_119rgxg" name="Wassertank füllen" scriptFormat="groovy">
+      <bpmn:incoming>Flow_1udaz5a</bpmn:incoming>
+      <bpmn:outgoing>Flow_159t17m</bpmn:outgoing>
+      <bpmn:script>execution.getVariable("levels")["water"] = 100;</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:boundaryEvent id="Event_0c150x0" name="Kaffee Maschiene ausschalten" attachedToRef="Activity_1ftxx8q">
+      <bpmn:outgoing>Flow_1kxbe7k</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0vlaedr" messageRef="Message_1n6glb8" />
+    </bpmn:boundaryEvent>
+    <bpmn:scriptTask id="Activity_0bemtpd" name="Initialisieren" scriptFormat="groovy">
+      <bpmn:incoming>Flow_1of13gc</bpmn:incoming>
+      <bpmn:outgoing>Flow_1dihixb</bpmn:outgoing>
+      <bpmn:script> // types
+ execution.setVariable("types", ["black", "espresso", "mokka", "cappuccino", "latte_macciato", "milk"]);
+ 
+// levels
+execution.setVariable("levels", ["milk": 100, "water": 100, "beans": 100, "sugar": 100]);
+
+// deficiencies
+execution.setVariable("deficiencies", []);
+
+// display
+execution.setVariable("display", "initialisieren...");</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:intermediateCatchEvent id="Event_09obgq7" name="Kaffemaschiene ein">
+      <bpmn:incoming>Flow_1dihixb</bpmn:incoming>
+      <bpmn:outgoing>Flow_1qpv5fa</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_187l56b" messageRef="Message_1k8ovwu" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:sequenceFlow id="Flow_1qpv5fa" sourceRef="Event_09obgq7" targetRef="Activity_1ftxx8q" />
+    <bpmn:sequenceFlow id="Flow_1dihixb" sourceRef="Activity_0bemtpd" targetRef="Event_09obgq7" />
+    <bpmn:startEvent id="Event_0jx3d3v">
+      <bpmn:outgoing>Flow_1of13gc</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1of13gc" sourceRef="Event_0jx3d3v" targetRef="Activity_0bemtpd" />
   </bpmn:process>
+  <bpmn:message id="Message_0vruq16" name="fill_sugar" />
+  <bpmn:message id="Message_17hjbln" name="fill_milk" />
+  <bpmn:message id="Message_052s2cq" name="fill_water" />
+  <bpmn:message id="Message_10p0pex" name="fill_beans" />
+  <bpmn:message id="Message_1n6glb8" name="power_off" />
+  <bpmn:message id="Message_0vy8o4t" name="selection" />
+  <bpmn:message id="Message_0ba6nb6" name="power_on" />
+  <bpmn:message id="Message_1k8ovwu" name="power_on" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0fquphk">
       <bpmndi:BPMNShape id="Participant_0f9uzqz_di" bpmnElement="Participant_0f9uzqz" isHorizontal="true">
@@ -377,10 +434,6 @@ execution.setVariable("deficiencies", []);</bpmn:script>
       <bpmndi:BPMNEdge id="Flow_1deutfc_di" bpmnElement="Flow_1deutfc">
         <di:waypoint x="2400" y="365" />
         <di:waypoint x="2170" y="365" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1tljnq3_di" bpmnElement="Flow_1tljnq3">
-        <di:waypoint x="308" y="690" />
-        <di:waypoint x="440" y="690" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1xkedlt_di" bpmnElement="Flow_1xkedlt">
         <di:waypoint x="2188" y="445" />
@@ -400,13 +453,12 @@ execution.setVariable("deficiencies", []);</bpmn:script>
       <bpmndi:BPMNEdge id="Flow_1udaz5a_di" bpmnElement="Flow_1udaz5a">
         <di:waypoint x="2188" y="1270" />
         <di:waypoint x="2249" y="1270" />
-        <di:waypoint x="2249" y="1295" />
-        <di:waypoint x="2310" y="1295" />
+        <di:waypoint x="2249" y="1335" />
+        <di:waypoint x="2310" y="1335" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_159t17m_di" bpmnElement="Flow_159t17m">
-        <di:waypoint x="2360" y="1255" />
-        <di:waypoint x="2360" y="1200" />
-        <di:waypoint x="2170" y="1200" />
+        <di:waypoint x="2310" y="1335" />
+        <di:waypoint x="2150" y="1335" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1jrbbzb_di" bpmnElement="Flow_1jrbbzb">
         <di:waypoint x="1960" y="1353" />
@@ -428,20 +480,47 @@ execution.setVariable("deficiencies", []);</bpmn:script>
         <di:waypoint x="1840" y="1380" />
         <di:waypoint x="1840" y="1335" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Event_0sqyiy8_di" bpmnElement="Event_09obgq7">
-        <dc:Bounds x="272" y="672" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="251" y="715" width="79" height="27" />
-        </bpmndi:BPMNLabel>
+      <bpmndi:BPMNEdge id="Flow_1kxbe7k_di" bpmnElement="Flow_1kxbe7k">
+        <di:waypoint x="2188" y="770" />
+        <di:waypoint x="2242" y="770" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qpv5fa_di" bpmnElement="Flow_1qpv5fa">
+        <di:waypoint x="388" y="670" />
+        <di:waypoint x="440" y="670" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1dihixb_di" bpmnElement="Flow_1dihixb">
+        <di:waypoint x="310" y="670" />
+        <di:waypoint x="352" y="670" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1of13gc_di" bpmnElement="Flow_1of13gc">
+        <di:waypoint x="250" y="548" />
+        <di:waypoint x="250" y="589" />
+        <di:waypoint x="260" y="589" />
+        <di:waypoint x="260" y="630" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_0qx8qi9_di" bpmnElement="Event_0qx8qi9">
+        <dc:Bounds x="2242" y="752" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_119rgxg_di" bpmnElement="Activity_119rgxg">
-        <dc:Bounds x="2310" y="1255" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0no19t9_di" bpmnElement="Activity_0no19t9">
+      <bpmndi:BPMNShape id="Activity_08nrti0_di" bpmnElement="Activity_0no19t9">
         <dc:Bounds x="2140" y="1380" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1x1sgf6_di" bpmnElement="Activity_1x1sgf6">
+      <bpmndi:BPMNShape id="Activity_00mvkw4_di" bpmnElement="Activity_1x1sgf6">
         <dc:Bounds x="1790" y="1380" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1umb4x1_di" bpmnElement="Activity_119rgxg">
+        <dc:Bounds x="2310" y="1295" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13ay96t_di" bpmnElement="Activity_0bemtpd">
+        <dc:Bounds x="210" y="630" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_110tigt_di" bpmnElement="Event_09obgq7">
+        <dc:Bounds x="352" y="652" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="331" y="695" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0jx3d3v_di" bpmnElement="Event_0jx3d3v">
+        <dc:Bounds x="232" y="512" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0hwsoew_di" bpmnElement="Activity_0hwsoew" isExpanded="true">
         <dc:Bounds x="2400" y="345" width="780" height="327" />
@@ -461,15 +540,11 @@ execution.setVariable("deficiencies", []);</bpmn:script>
           <dc:Bounds x="2694" y="501" width="23" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_04px6l3_di" bpmnElement="Flow_04px6l3">
-        <di:waypoint x="2870" y="425" />
-        <di:waypoint x="2932" y="425" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0rhzflp_di" bpmnElement="Flow_0rhzflp">
         <di:waypoint x="2715" y="425" />
-        <di:waypoint x="2770" y="425" />
+        <di:waypoint x="2932" y="425" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2736" y="407" width="13" height="14" />
+          <dc:Bounds x="2752" y="407" width="13" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0ewkmbd_di" bpmnElement="Flow_0ewkmbd">
@@ -492,9 +567,6 @@ execution.setVariable("deficiencies", []);</bpmn:script>
           <dc:Bounds x="2661" y="370" width="59" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0yt7dar_di" bpmnElement="Activity_0yt7dar">
-        <dc:Bounds x="2770" y="385" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0e4epa9_di" bpmnElement="Event_0e4epa9">
         <dc:Bounds x="2932" y="407" width="36" height="36" />
       </bpmndi:BPMNShape>
@@ -504,11 +576,11 @@ execution.setVariable("deficiencies", []);</bpmn:script>
       <bpmndi:BPMNShape id="Activity_1ngu0gt_di" bpmnElement="Activity_164odgu">
         <dc:Bounds x="2640" y="555" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1a5o9d9_di" bpmnElement="Activity_1a5o9d9">
+      <bpmndi:BPMNShape id="Activity_09v2zn9_di" bpmnElement="Activity_1a5o9d9">
         <dc:Bounds x="2770" y="555" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_15eyizn_di" bpmnElement="Activity_15eyizn" isExpanded="true">
-        <dc:Bounds x="2340" y="975" width="670" height="200" />
+        <dc:Bounds x="2340" y="975" width="670" height="310" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0xij8ve_di" bpmnElement="Flow_0xij8ve">
         <di:waypoint x="2416" y="1085" />
@@ -516,7 +588,7 @@ execution.setVariable("deficiencies", []);</bpmn:script>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1i8owk5_di" bpmnElement="Flow_1i8owk5">
         <di:waypoint x="2830" y="1085" />
-        <di:waypoint x="2872" y="1085" />
+        <di:waypoint x="2912" y="1085" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_08v2dcy_di" bpmnElement="Flow_08v2dcy">
         <di:waypoint x="2690" y="1085" />
@@ -529,25 +601,21 @@ execution.setVariable("deficiencies", []);</bpmn:script>
       <bpmndi:BPMNShape id="Event_1ksrpvx_di" bpmnElement="Event_1ksrpvx">
         <dc:Bounds x="2380" y="1067" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0wwxeii_di" bpmnElement="Activity_0wwxeii">
-        <dc:Bounds x="2730" y="1045" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_13w2w38_di" bpmnElement="Activity_13w2w38">
+      <bpmndi:BPMNShape id="Activity_0wvp3db_di" bpmnElement="Activity_13w2w38">
         <dc:Bounds x="2460" y="1045" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_04lrzqe_di" bpmnElement="Activity_04lrzqe">
+      <bpmndi:BPMNShape id="Activity_1utaag8_di" bpmnElement="Activity_04lrzqe">
         <dc:Bounds x="2590" y="1045" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1gep7oq_di" bpmnElement="Activity_0wwxeii">
+        <dc:Bounds x="2730" y="1045" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0mo8piz_di" bpmnElement="Event_0mo8piz">
-        <dc:Bounds x="2872" y="1067" width="36" height="36" />
+        <dc:Bounds x="2912" y="1067" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1ftxx8q_di" bpmnElement="Activity_1ftxx8q" isExpanded="true">
         <dc:Bounds x="440" y="145" width="1730" height="1190" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_05hol9w_di" bpmnElement="Flow_05hol9w">
-        <di:waypoint x="680" y="685" />
-        <di:waypoint x="735" y="685" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0wvo4xk_di" bpmnElement="Flow_0wvo4xk">
         <di:waypoint x="760" y="710" />
         <di:waypoint x="760" y="1148" />
@@ -615,9 +683,9 @@ execution.setVariable("deficiencies", []);</bpmn:script>
         <di:waypoint x="1778" y="705" />
         <di:waypoint x="1835" y="705" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0zqrsgo_di" bpmnElement="Flow_0zqrsgo">
+      <bpmndi:BPMNEdge id="Flow_0ijv0tm_di" bpmnElement="Flow_0ijv0tm">
         <di:waypoint x="508" y="685" />
-        <di:waypoint x="580" y="685" />
+        <di:waypoint x="735" y="685" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_1dfnsu6_di" bpmnElement="Event_1dfnsu6">
         <dc:Bounds x="472" y="667" width="36" height="36" />
@@ -628,9 +696,6 @@ execution.setVariable("deficiencies", []);</bpmn:script>
       <bpmndi:BPMNShape id="Event_0czqfnq_di" bpmnElement="Event_0czqfnq">
         <dc:Bounds x="2112" y="537" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_13vhxoj_di" bpmnElement="Activity_13vhxoj">
-        <dc:Bounds x="1940" y="515" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0p74eku_di" bpmnElement="Gateway_0p74eku" isMarkerVisible="true">
         <dc:Bounds x="1925" y="680" width="50" height="50" />
         <bpmndi:BPMNLabel>
@@ -640,14 +705,14 @@ execution.setVariable("deficiencies", []);</bpmn:script>
       <bpmndi:BPMNShape id="Gateway_0d0u3pr_di" bpmnElement="Gateway_07e16dw">
         <dc:Bounds x="1835" y="680" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1cqkmxg_di" bpmnElement="Activity_1cqkmxg">
-        <dc:Bounds x="1900" y="805" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0mzx1fx_di" bpmnElement="Event_0mzx1fx">
         <dc:Bounds x="2092" y="827" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_13ay96t_di" bpmnElement="Activity_0bemtpd">
-        <dc:Bounds x="580" y="645" width="100" height="80" />
+      <bpmndi:BPMNShape id="Activity_1y5nu2u_di" bpmnElement="Activity_13vhxoj">
+        <dc:Bounds x="1940" y="515" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ks86r9_di" bpmnElement="Activity_1cqkmxg">
+        <dc:Bounds x="1900" y="805" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_03apqm2_di" bpmnElement="Activity_03apqm2" isExpanded="true">
         <dc:Bounds x="1060" y="205" width="660" height="255" />
@@ -701,11 +766,11 @@ execution.setVariable("deficiencies", []);</bpmn:script>
       <bpmndi:BPMNShape id="Event_17yegu4_di" bpmnElement="Event_17yegu4">
         <dc:Bounds x="1582" y="287" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1qgd06v_di" bpmnElement="Activity_1qgd06v">
-        <dc:Bounds x="1430" y="360" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0lcei32_di" bpmnElement="Activity_1bunime">
         <dc:Bounds x="1430" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1umhk3q_di" bpmnElement="Activity_1qgd06v">
+        <dc:Bounds x="1430" y="360" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_18ilkx8_di" bpmnElement="Activity_18ilkx8" isExpanded="true">
         <dc:Bounds x="1060" y="465" width="660" height="255" />
@@ -756,13 +821,13 @@ execution.setVariable("deficiencies", []);</bpmn:script>
       <bpmndi:BPMNShape id="Event_1h80km7_di" bpmnElement="Event_1h80km7">
         <dc:Bounds x="1582" y="547" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1abwa82_di" bpmnElement="Activity_1abwa82">
-        <dc:Bounds x="1430" y="525" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1th12m0_di" bpmnElement="Event_1th12m0">
         <dc:Bounds x="1582" y="642" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1famc96_di" bpmnElement="Activity_1famc96">
+      <bpmndi:BPMNShape id="Activity_0jpvyg5_di" bpmnElement="Activity_1abwa82">
+        <dc:Bounds x="1430" y="525" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1wnfryt_di" bpmnElement="Activity_1famc96">
         <dc:Bounds x="1430" y="620" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_14cf0tp_di" bpmnElement="Activity_14cf0tp" isExpanded="true">
@@ -814,13 +879,13 @@ execution.setVariable("deficiencies", []);</bpmn:script>
       <bpmndi:BPMNShape id="Event_0yuddxn_di" bpmnElement="Event_0yuddxn">
         <dc:Bounds x="1582" y="822" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1jdrpp2_di" bpmnElement="Activity_1jdrpp2">
-        <dc:Bounds x="1430" y="800" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_05pzaos_di" bpmnElement="Event_05pzaos">
         <dc:Bounds x="1582" y="917" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1rkg6qw_di" bpmnElement="Activity_1rkg6qw">
+      <bpmndi:BPMNShape id="Activity_1pqlcpa_di" bpmnElement="Activity_1jdrpp2">
+        <dc:Bounds x="1430" y="800" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_15oajau_di" bpmnElement="Activity_1rkg6qw">
         <dc:Bounds x="1430" y="895" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1wh3wcl_di" bpmnElement="Activity_1wh3wcl" isExpanded="true">
@@ -872,13 +937,13 @@ execution.setVariable("deficiencies", []);</bpmn:script>
       <bpmndi:BPMNShape id="Event_0kdqcra_di" bpmnElement="Event_0kdqcra">
         <dc:Bounds x="1582" y="1102" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1l3nb2r_di" bpmnElement="Activity_1l3nb2r">
-        <dc:Bounds x="1430" y="1080" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_09y81p9_di" bpmnElement="Event_09y81p9">
         <dc:Bounds x="1582" y="1197" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0x47wn6_di" bpmnElement="Activity_0x47wn6">
+      <bpmndi:BPMNShape id="Activity_0o0g7ys_di" bpmnElement="Activity_1l3nb2r">
+        <dc:Bounds x="1430" y="1080" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1cqdix4_di" bpmnElement="Activity_0x47wn6">
         <dc:Bounds x="1430" y="1175" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_05rb8zf_di" bpmnElement="Event_1ie2buv">
@@ -909,6 +974,12 @@ execution.setVariable("deficiencies", []);</bpmn:script>
         <dc:Bounds x="1942" y="1317" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1929" y="1303" width="63" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0qudo94_di" bpmnElement="Event_0c150x0">
+        <dc:Bounds x="2152" y="752" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2136" y="726" width="88" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
