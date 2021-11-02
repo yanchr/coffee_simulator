@@ -1,1 +1,13 @@
 \chapter{Vorgehen und Probleme}\label{ch:vorgehen-und-probleme}
+
+Wir haben uns zuerst alle Aufgaben überlegt, die wir abbilden möchten.
+Als wir dann damit begannen, unsere Überlegungen als BPMN aufzuzeichnen, hatten wir anfänglich etwas Mühe damit, die Einteilung in die verschiedenen Lanes zu machen.
+Zuerst wollten wir den Benutzer als eigenes System auch in das Diagramm integrieren.
+Wir haben aber relativ schnell gemerkt, dass es mit unserem Setup mit dem Frontend nicht sinnvoll ist, das Verhalten des Benutzers in der Workflow Engine abzubilden.
+Stattdessen haben wir uns dafür entschieden, nur die internen Tasks der Maschine abzubilden und eine REST-Schnittstelle zur Verfügung zu stellen, über die mit der Maschine kommuniziert werden kann.
+
+Eine Schwierigkeit war insbesondere der Standby-Zustand, der sich endlos wiederholt.
+Da die Workflow Engine (noch) keine Unterstützung für sich wiederholende Subtasks bietet, mussten wir den Subtask auf sich selbst weiterleiten, um so eine Endlosschleife zu erhalten.
+Damit bewirkten wir aber ein scheinbar unberechenbares Verhalten und eine Überlastung unseres PCs.
+Deshalb begannen wir mit ``delays'' in den Script-Tasks bzw. später mit Timern zu arbeiten, um die endlose Ausführung des Tasks besser kontrollieren zu können.
+Insgesamt mussten wir viel ausprobieren und wieder anpassen, bis der Prozess sauber in der Workflow Engine ausgeführt werden konnte.

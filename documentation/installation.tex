@@ -1,1 +1,20 @@
 \chapter{Installation}\label{ch:installation}
+In diesem Kapitel sind die erforderlichen Schritte um die Applikation lokal laufen zu lassen kurz beschrieben.
+
+
+\section{Backend}\label{sec:backend}
+Um das Backend zu starten, muss zuerst die Camunda Workflow Engine gestartet werden.
+Am einfachsten geht dies über Docker mit dem folgenden Befehl:
+
+\begin{minted}{bash}
+docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:7.15.0
+\end{minted}
+
+Nach einiger Zeit sollte das Camunda Control Panel im Browser über \mintinline{text}{http://localhost:8080/camunda} erreichbar sein (Credentials: demo:demo).
+
+Nun müssen nur noch die beiden Files \mintinline{text}{diagrams/ingredients.dmn} und \mintinline{text}{diagrams/coffee_simulator.bpmn} aus dem Modeler heraus deployed und der Prozess ``Coffee\_Process'' gestartet werden.
+
+
+\section{Frontend}\label{sec:frontend}
+Um das Frontend auszuführen, muss nur die HTML--Datei \mintinline{text}{index.html} in einem Browser geöffnet werden.
+Falls die Adresse des Backends nicht \mintinline{text}{localhost:8080} ist, kann diese in der Datei %TODO definiert werden.
