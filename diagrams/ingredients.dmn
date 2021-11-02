@@ -8,7 +8,10 @@
         </inputExpression>
       </input>
       <output id="Output_1" label="Zutaten" name="ingredients" typeRef="string" />
-      <output id="OutputClause_01cpqup" label="Grösse" name="size" typeRef="integer" />
+      <output id="OutputClause_00y5zhp" label="Bohnen" name="beans" typeRef="integer" />
+      <output id="OutputClause_1p7cyxg" label="Milch" name="milk" typeRef="integer" />
+      <output id="OutputClause_04qk1i9" label="Wasser" name="water" typeRef="integer" />
+      <output id="OutputClause_1y25vzn" label="Zucker" name="sugar" typeRef="integer" />
       <rule id="DecisionRule_1sw65vu">
         <inputEntry id="UnaryTests_0y0n73h">
           <text>"black"</text>
@@ -16,8 +19,17 @@
         <outputEntry id="LiteralExpression_0sn51i2">
           <text>"coffee"</text>
         </outputEntry>
-        <outputEntry id="LiteralExpression_1b74ocy">
-          <text>5</text>
+        <outputEntry id="LiteralExpression_14kz1hg">
+          <text>10</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0mnnnhd">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1q2qwq5">
+          <text>10</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ov2rdk">
+          <text>0</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0luszrw">
@@ -27,8 +39,17 @@
         <outputEntry id="LiteralExpression_0ax3yhe">
           <text>"coffee"</text>
         </outputEntry>
-        <outputEntry id="LiteralExpression_0hth87y">
-          <text>3</text>
+        <outputEntry id="LiteralExpression_17orj4u">
+          <text>5</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1w5v45t">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0zyle2l">
+          <text>5</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_03ea7vu">
+          <text>0</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0ke4ysl">
@@ -38,7 +59,16 @@
         <outputEntry id="LiteralExpression_1qmftkx">
           <text>"coffee, zucker"</text>
         </outputEntry>
-        <outputEntry id="LiteralExpression_1lqxbqs">
+        <outputEntry id="LiteralExpression_0c1pxpf">
+          <text>10</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ktx5bh">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1rc4914">
+          <text>10</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1qwm1uk">
           <text>5</text>
         </outputEntry>
       </rule>
@@ -49,8 +79,17 @@
         <outputEntry id="LiteralExpression_1f19wa7">
           <text>"coffee, milk, froth"</text>
         </outputEntry>
-        <outputEntry id="LiteralExpression_0stp6g7">
+        <outputEntry id="LiteralExpression_11me37n">
+          <text>10</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0dv6s9s">
+          <text>10</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_13192a3">
           <text>5</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1k3rnbr">
+          <text>0</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1lm1fl1">
@@ -60,8 +99,17 @@
         <outputEntry id="LiteralExpression_0ldwwb3">
           <text>"coffee, milk, froth"</text>
         </outputEntry>
-        <outputEntry id="LiteralExpression_1blp2a9">
-          <text>8</text>
+        <outputEntry id="LiteralExpression_0xe2nv3">
+          <text>15</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0n4wa05">
+          <text>10</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ihdk9y">
+          <text>15</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0swj4no">
+          <text>0</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_02uvobp">
@@ -71,8 +119,17 @@
         <outputEntry id="LiteralExpression_0namier">
           <text>"milk"</text>
         </outputEntry>
-        <outputEntry id="LiteralExpression_06rw2kj">
-          <text>5</text>
+        <outputEntry id="LiteralExpression_0x6y4so">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1qwvwii">
+          <text>20</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1vuimrj">
+          <text>0</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0iye7c4">
+          <text>0</text>
         </outputEntry>
       </rule>
     </decisionTable>
