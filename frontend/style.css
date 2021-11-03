@@ -1,0 +1,39 @@
+* {
+    position: relative;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+h1{
+    font-size: 40px;
+    width: 350px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.power-btn{
+    background-color: antiquewhite;
+}
+
+.power-btn.on{
+    background-color:chartreuse;
+}
+
+.invisible{
+    visibility: hidden;
+}
+
+.left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.filler {
+    float: right;
+    margin-top: -35px;
+}
+
+.fill-stand{
+    width: 200px;
+}
