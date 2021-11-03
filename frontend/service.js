@@ -67,11 +67,44 @@ function standBy() {
     }else if(test == 1){
         test++
         getDisplay()
-    }else{
-        test = 0
+    }else if (test ==2) {
+        test++
         getActivityName()
+    }else {
+        test = 0
+        const displayText = display.innerText.split(" : ")[1] 
+        if(displayText === "Bereit") {
+            enableBtn(fillWaterBtn)
+            enableBtn(fillMilkBtn)
+            enableBtn(fillBeansBtn)
+            enableBtn(fillSugarBtn)
+            enableBtn(drinkBtn)
+            console.log("3")
+        } else if(displayText == "Mahlen"){
+            disableBtn(fillWaterBtn)
+            disableBtn(fillMilkBtn)
+            disableBtn(fillBeansBtn)
+            disableBtn(fillSugarBtn)
+            disableBtn(drinkBtn)
+            console.log("4")
+        } else if(displayText.split(":")[0] == "Die folgenden Füllstände sind niedrig") {
+            enableBtn(fillWaterBtn)
+            enableBtn(fillMilkBtn)
+            enableBtn(fillBeansBtn)
+            enableBtn(fillSugarBtn)
+        }
     }
  //getDisplay()
+}
+
+function enableBtn(button) {
+    button.classList.remove("disabled")
+    button.disabled = false
+}
+
+function disableBtn(button) {
+    button.classList.add("disabled")
+    button.disabled = true
 }
 
 function getProcessInstanceId() {

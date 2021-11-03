@@ -37,3 +37,7 @@ h1{
 .fill-stand{
     width: 200px;
 }
+
+.disabled{
+    background-color: red;
+}
