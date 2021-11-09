@@ -17,4 +17,22 @@ Nun müssen nur noch die beiden Files \mintinline{text}{diagrams/ingredients.dmn
 
 \section{Frontend}\label{sec:frontend}
 Um das Frontend auszuführen, muss nur die HTML--Datei \mintinline{text}{index.html} in einem Browser geöffnet werden.
-Falls die Adresse des Backends nicht \mintinline{text}{localhost:8080} ist, kann diese in der Datei %TODO definiert werden.
+Falls die Adresse des Backends nicht \mintinline{text}{localhost:8080} ist, kann diese in der Datei \mintinline{text}{backend.js} über die Variable \mintinline{text}{backendBaseUrl} konfiguriert werden.
+
+\textbf{Wichtig: CORS mit Camunda}:
+Die Requests des Frontends werden durch die Same-Origin-Policy \footnote{\url{https://developer.mozilla.org/de/docs/Web/HTTP/CORS}} des Browsers geblockt.
+Um dieses Problem zu beheben, müssten im Backend (Camunda Workflow Engine) entsprechende Header gesetzt werden.
+Siehe evtl. \footnote{\url{https://forum.camunda.org/t/enable-cors-in-camunda-tomcat-7-4/1341/4}}.
+Als Workaround kann der Browser ohne Sicherheitsfeatures gestartet werden:
+
+\begin{minted}{bash}
+# Chrome auf Linux
+google-chrome --disable-web-security --user-data-dir=<Beliebiger Ordner>
+\end{minted}
+
+\begin{minted}{bash}
+# Chrome auf Windows
+chrome.exe --user-data-dir="<Beliebiger Ordner>" --disable-web-security
+\end{minted}
+
+

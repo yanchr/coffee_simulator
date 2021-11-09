@@ -1,12 +1,30 @@
 \chapter{Test Cases}\label{ch:test-cases}
 
+Bei den folgenden Test Cases wird jeweils vorausgesetzt, dass der Prozess im Camunda Backend läuft und das Frontend im Browser geöffnet ist.
+
 \begin{longtable}{|p{.05\textwidth}|p{.20\textwidth}|p{.30\textwidth}|p{.22\textwidth}|p{.23\textwidth}|}
     \hline
-    \textbf{Nr.} & \textbf{Name} & \textbf{Beschreibung} & \textbf{Erwartetes Resultat} & \textbf{Tatsächliches Resultat}
+    \textbf{Nr.} & \textbf{Name} & \textbf{Testschritte} & \textbf{Erwartetes Resultat} & \textbf{Tatsächliches Resultat}
     \\ \hline
-    1 & Einschalten & Maschine über den Power-Knopf einschalten & Maschine ist eingeschaltet
-    & Maschine ist eingeschaltet
+    1 & Einschalten & Maschine über den Power-Knopf einschalten & Knöpfe sind aktiviert und der Powerknopf wird grün.
+    & Knöpfe sind aktiviert und der Powerknopf wird grün.
+    \\ \hline
+    2 & Ausschalten & Maschine über den Power-Knopf ausschalten & Knöpfe sind deaktiviert und der Powerknopf wird beige.
+    & Knöpfe sind deaktiviert und der Powerknopf wird beige.
+    \\ \hline
+    3 & Cappuccino herauslassen  & Maschine über den Power-Knopf einschalten, Cappuccino auswählen, ``Drink Coffee'' drücken  & Die Füllstände werden folgendermassen reduziert: Milch -10, Wasser -5, Beans -10
+    & Die Füllstände werden folgendermassen reduziert: Milch -10, Wasser -5, Beans -10
+    \\ \hline
+    4 & Niedrige Füllstände Warnung & Alle Zutaten füllen (100), 9x Cappuccino herauslassen (siehe 3.) & Auf dem Display wird eine Warnung zu den Füllständen von Milch und Bohnen ausgegeben.
+    & Auf dem Display wird eine Warnung zu den Füllständen von Milch und Bohnen ausgegeben.
+    \\ \hline
+    5 & Zutaten füllen (ausser Bohnen) & ``Fill''-Knopf von einer Zutat (nicht Bohnen) drücken & Der Füllstand der Zutat beträgt 100
+    & Der Füllstand der Zutat beträgt 100
+    \\ \hline
+    6 & Bohnen füllen & ``Fill''-Knopf von Bohnen drücken & Der Füllstand der Bohnen beträgt 100, die Knöpfe werden für 5 Sekunden deaktiviert, auf dem Display wird während dieser Dauer ``Mahlen'' angezeigt
+    & Der Füllstand der Bohnen beträgt 100, die Knöpfe werden für 5 Sekunden deaktiviert, auf dem Display wird während dieser Dauer ``Mahlen'' angezeigt
+    \\ \hline
+    7 & Kaffee herauslassen, wenn die Maschine nicht bereit ist & Den Füllstand von mindestens einer Zutat auf <= 10 bringen (durch Herauslassen von Kaffee), einen weiteren Kaffee herauslassen & Es passiert nichts, die Füllstände bleiben unverändert
+    & Es passiert nichts, die Füllstände bleiben unverändert
     \\ \hline
 \end{longtable}\label{tab:test-cases}
-
-% TODO
