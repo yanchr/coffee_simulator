@@ -57,44 +57,44 @@ fillSugarBtn.addEventListener("click", () => {
 })
 
 
-
-var intervalID = window.setInterval(standBy, 200);
+let waiter = 0
+var intervalID = window.setInterval(standBy, 250);
 let test = 0
 function standBy() {
-    if(test == 0){
+    if (test == 0) {
         test++
         getLevels()
-    }else if(test == 1){
+    } else if (test == 1) {
         test++
         getDisplay()
-    }else if (test ==2) {
+    } else if (test == 2) {
         test++
         getActivityName()
-    }else {
+    } else {
         test = 0
-        const displayText = display.innerText.split(" : ")[1] 
-        if(displayText === "Bereit") {
-            enableBtn(fillWaterBtn)
-            enableBtn(fillMilkBtn)
-            enableBtn(fillBeansBtn)
-            enableBtn(fillSugarBtn)
-            enableBtn(drinkBtn)
-            console.log("3")
-        } else if(displayText == "Mahlen"){
+        const displayText = display.innerText.split(" : ")[1]
+        if (displayText === "Bereit") {
+            //enableBtn(fillWaterBtn)
+            //enableBtn(fillMilkBtn)
+            //enableBtn(fillBeansBtn)
+            //enableBtn(fillSugarBtn)
+            //enableBtn(drinkBtn)
+        } else if (displayText == "Mahlen") {
             disableBtn(fillWaterBtn)
             disableBtn(fillMilkBtn)
             disableBtn(fillBeansBtn)
             disableBtn(fillSugarBtn)
             disableBtn(drinkBtn)
-            console.log("4")
-        } else if(displayText.split(":")[0] == "Die folgenden Füllstände sind niedrig") {
-            enableBtn(fillWaterBtn)
-            enableBtn(fillMilkBtn)
-            enableBtn(fillBeansBtn)
-            enableBtn(fillSugarBtn)
+            waiter++;
+            console.log(`Sek: ${waiter}`)
+        } else if (displayText.split(":")[0] == "Die folgenden Füllstände sind niedrig") {
+            //enableBtn(fillWaterBtn)
+            //enableBtn(fillMilkBtn)
+            //enableBtn(fillBeansBtn)
+            //enableBtn(fillSugarBtn)
         }
     }
- //getDisplay()
+    //getDisplay()
 }
 
 function enableBtn(button) {
@@ -170,14 +170,25 @@ function getActivityName() {
     xhttp.onreadystatechange = function () {
         if (this.status == 200 && this.responseText) {
             activityName = JSON.parse(this.responseText).childActivityInstances[0].activityName
-            if(activityName == "Standby") {
+            if (activityName == "Standby") {
                 on = true
                 startBtn.classList.add('on')
                 startBtn.innerText = "Power on"
+                enableBtn(fillWaterBtn)
+                enableBtn(fillMilkBtn)
+                enableBtn(fillBeansBtn)
+                enableBtn(fillSugarBtn)
+                enableBtn(drinkBtn)
             } else {
                 on = false
                 startBtn.classList.remove('on')
                 startBtn.innerText = "Power off"
+                disableBtn(fillWaterBtn)
+                disableBtn(fillMilkBtn)
+                disableBtn(fillBeansBtn)
+                disableBtn(fillSugarBtn)
+                disableBtn(drinkBtn)
+
             }
         }
     };
