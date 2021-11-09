@@ -29,6 +29,7 @@ const fillMilkBtn = document.querySelector('#fill-milk')
 const fillBeansBtn = document.querySelector('#fill-beans')
 const fillSugarBtn = document.querySelector('#fill-sugar')
 
+
 getProcessInstanceId()
 
 startBtn.addEventListener("click", () => {
@@ -57,7 +58,7 @@ fillSugarBtn.addEventListener("click", () => {
 })
 
 
-let waiter = 0
+let waiter = 6
 var intervalID = window.setInterval(standBy, 250);
 let test = 0
 function standBy() {
@@ -74,27 +75,18 @@ function standBy() {
         test = 0
         const displayText = display.innerText.split(" : ")[1]
         if (displayText === "Bereit") {
-            //enableBtn(fillWaterBtn)
-            //enableBtn(fillMilkBtn)
-            //enableBtn(fillBeansBtn)
-            //enableBtn(fillSugarBtn)
-            //enableBtn(drinkBtn)
+            waiter = 6
         } else if (displayText == "Mahlen") {
             disableBtn(fillWaterBtn)
             disableBtn(fillMilkBtn)
             disableBtn(fillBeansBtn)
             disableBtn(fillSugarBtn)
             disableBtn(drinkBtn)
-            waiter++;
+            waiter--;
             console.log(`Sek: ${waiter}`)
         } else if (displayText.split(":")[0] == "Die folgenden Füllstände sind niedrig") {
-            //enableBtn(fillWaterBtn)
-            //enableBtn(fillMilkBtn)
-            //enableBtn(fillBeansBtn)
-            //enableBtn(fillSugarBtn)
         }
     }
-    //getDisplay()
 }
 
 function enableBtn(button) {
